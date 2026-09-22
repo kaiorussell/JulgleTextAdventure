@@ -26,11 +26,13 @@ namespace JulgleTextAdventure
         {
             if (attackCounter == 3)
             {
-                return 
+                attackCounter = 0;
+                return BigAttack();
             }
             else
             {
-
+                attackCounter++;
+                return SmallAttack();
             }
         }
 
