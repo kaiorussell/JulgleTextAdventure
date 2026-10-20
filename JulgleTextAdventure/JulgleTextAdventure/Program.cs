@@ -39,7 +39,7 @@ void start()
         "1: Følg floden \n" + "2: Gå gennem træerne. \n\n" +
         "");
     Console.Write("Hvad gør du: ");
-    int Choice = int.Parse(Console.ReadLine());
+    int Choice = readChoice(new int[] { 1, 2 });
     Console.Clear();
 
     if (Choice == 1 || Choice == 2)
@@ -60,7 +60,7 @@ void byen()
         "1: Find et kort \n" + "2: Spørg den søde dame. \n" + "3: Udforsk. \n\n" +
         "");
     Console.Write("Hvad gør du: ");
-    int Choice = int.Parse(Console.ReadLine());
+    int Choice = readChoice(new int[] { 1, 2, 3 });
     Console.Clear();
 
     if (Choice == 1)
@@ -113,7 +113,7 @@ void mall()
         "1: Hack kortet \n" + "2: Giv op. \n" + "3: Tryk lidt på skærmen og håb for det bedste \n\n" +
         "");
     Console.Write("Hvad gør du: ");
-    int Choice = int.Parse(Console.ReadLine());
+    int Choice = readChoice(new int[] { 1, 2, 3 });
     Console.Clear();
 
     if (Choice == 1)
@@ -180,7 +180,7 @@ bool Combat(Enemy enemy)
         //spillers tur
         Console.Write("1: Angrib \n2: Bloker\n" +
             "Hvad gør du: ");
-        int input = int.Parse(Console.ReadLine());
+        int input = readChoice(new int[] { 1, 2 });
         Console.Clear();
         if (input == 1)
         {
@@ -212,3 +212,39 @@ bool Combat(Enemy enemy)
         }
     }
 }
+
+int readChoice(Array validInput)
+{
+    while (true)
+    {
+        string input = Console.ReadLine();
+        int choice;
+        if (!int.TryParse(input, out choice))
+        {
+            Console.WriteLine("Det er ikke validt input. Prøv igen.");
+            continue;
+        }
+
+        bool isValid = false;
+        foreach (int i in validInput)
+        {
+            if (choice == i)
+            {
+                isValid = true;
+                break;
+            }
+        }
+
+        if (!isValid)
+        {
+            Console.WriteLine("Det er ikke validt input. Prøv igen.");
+            continue;
+        }
+        else
+        {
+            return choice;
+        }
+                
+    }
+}
+
