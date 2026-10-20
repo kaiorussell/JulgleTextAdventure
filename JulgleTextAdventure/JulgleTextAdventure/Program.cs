@@ -8,6 +8,7 @@ int attack = 1;
 Main();
 void Main()
 {
+    Console.ForegroundColor = ConsoleColor.White;
     gameTitle();
 }
 
@@ -96,7 +97,7 @@ void byen()
     if (Choice == 3)
     {
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("Du udforsker byen, og holder godt øje efter malerboutiquen, men du glemmer at kigge op! \n + " +
+        Console.WriteLine("Du udforsker byen, og holder godt øje efter malerboutiquen, men du glemmer at kigge op! \n" +
         "Et kæmpe klaver falder ned i hovedet på dig og du dør. \n" +
         "R.I.N.P, Game Over.");
         gameOver();
@@ -110,16 +111,20 @@ void mall()
         "Du befinder dig nu i dette 'storcenter'.\n" +
         "Efter at kigge lidt rundt finder du endelig en skærm med et kort.\n" +
         "Men hvordan finder du malerboutiquen gennem dette kort?\n" +
-        "1: Hack kortet \n" + "2: Giv op. \n" + "3: Tryk lidt på skærmen og håb for det bedste \n\n" +
-        "");
+        "1: Hack kortet \n" + "2: Giv op. \n" + "3: Tryk lidt på skærmen og håb for det bedste \n\n");
     Console.Write("Hvad gør du: ");
     int Choice = readChoice(new int[] { 1, 2, 3 });
     Console.Clear();
 
     if (Choice == 1)
     {
-        Console.WriteLine("");
-        mall();
+        Console.WriteLine(
+             "Du hacker dig ind i mainframet.\n" +
+             "Selv om du har ingen ide om hvad du lige gjorde. Du er inde. \n" +
+             "På en eller anden måde finder du lokationen af malerboutiquen, som befinder sig i en lille landsby.. \n" +
+             "1O meter fra julglen. Nå. Du er nød til at backtrack. \n" +
+             "I det mindste ved du hvor malerboutiquen befinder sig nu. \n");
+        julglen();
     }
 
     if (Choice == 2)
@@ -145,9 +150,25 @@ void mall()
     }
 }
 
+void julglen()
+{
+    Console.ForegroundColor = ConsoleColor.Green;
+    Console.WriteLine(
+        "Du wandrer gennem julglen, og tager vejen langs floden, den minder dig næsten om den dag.\n" +
+        "Det var en hård dag for alle, men mest dig. \n" +
+        "Ingen vil nogensinde forstå det som du gjorde.\n" +
+        "Det er ikke din skyld at alle andre siger du overdriver, du ved hvad der virkelig skete den dag.\n" +
+        "Du er en super sej panter, du fortjener at blive pink.\n" +
+        "Anyways. Du er befinder dig nu i den lille landsby.\n");
+}
+
 void gameOver()
 {
-
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine("\n Tryk på 'enter' for at prøve igen...");
+    Console.ReadLine();
+    Console.Clear();
+    Main();
 }
 
 void youWin()
