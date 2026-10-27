@@ -1,6 +1,8 @@
 ﻿﻿
 // string, område er en funtion, 
 using JulgleTextAdventure;
+using System;
+using System.Data;
 
 int hp = 5;
 int attack = 1;
@@ -58,8 +60,7 @@ void byen()
         "Du befinder dig nu i en mellemstor by.\n" +
         "Der er bygninger så langt øjet rækker.\n" +
         "Men gad vide hvor malerboutiquen er..\n" +
-        "1: Find et kort \n" + "2: Spørg den søde dame. \n" + "3: Udforsk. \n\n" +
-        "");
+        "1: Find et kort \n" + "2: Spørg den søde dame \n" + "3: Udforsk \n\n" );
     Console.Write("Hvad gør du?: ");
     int Choice = readChoice(new int[] { 1, 2, 3 });
     Console.Clear();
@@ -68,6 +69,7 @@ void byen()
     {
         Console.WriteLine("Du leder desperat efter et kort, og du vandre ind i en kæmpe bygning kaldt 'storcenter'");
         mall();
+        Console.Clear();
     }
 
     if (Choice == 2)
@@ -80,7 +82,12 @@ void byen()
             Console.WriteLine("Du absolute destruerer den stakkels dame. \n" +
                 "Du finder dog en lille skærm på jorden ved siden af hende. \n" +
                 "Når du samler den op er den allerede inde på et mini kort! Wow! \n" +
-                "Du finder din kupon og dine læsebriller frem og intaster addressen forsigtigt.");
+                "Du finder din kupon og dine læsebriller frem og intaster addressen forsigtigt. \n" +
+                "Du finder malerboutiquen, og begynder din rute.\n");
+            Console.WriteLine("Tryk 'Enter' for at fortsætte.");
+            Console.ReadLine();
+            Console.Clear();
+            julglen();
         }
         else
         {
@@ -111,7 +118,7 @@ void mall()
         "Du befinder dig nu i dette 'storcenter'.\n" +
         "Efter at kigge lidt rundt finder du endelig en skærm med et kort.\n" +
         "Men hvordan finder du malerboutiquen gennem dette kort?\n" +
-        "1: Hack kortet \n" + "2: Giv op. \n" + "3: Tryk lidt på skærmen og håb for det bedste \n\n");
+        "1: Hack kortet \n" + "2: Giv op \n" + "3: Tryk lidt på skærmen og håb for det bedste \n\n");
     Console.Write("Hvad gør du?: ");
     int Choice = readChoice(new int[] { 1, 2, 3 });
     Console.Clear();
@@ -124,6 +131,9 @@ void mall()
              "På en eller anden måde finder du lokationen af malerboutiquen, som befinder sig i en lille landsby.. \n" +
              "1O meter fra julglen. Nå. Du er nød til at backtrack. \n" +
              "I det mindste ved du hvor malerboutiquen befinder sig nu. \n");
+        Console.WriteLine("Tryk 'Enter' for at fortsætte.");
+        Console.ReadLine();
+        Console.Clear();
         julglen();
     }
 
@@ -145,7 +155,7 @@ void mall()
             "Du kommer også til at krasse skærmen lidt med dine skarpe klør, og lige pludslig virker skærmen ikke mere! \n" +
             "Til gengæld kommer der en vagt, der blev tilkaldt da signalet på en af skærmene blev stoppet \n" +
             "( og de mange klager om dig af de mange mennesker omkring dig. ) \n" +
-            "Vagten gør klar til at fange dig!");
+            "Vagten gør klar til at fange dig! \n");
         //fight
     }
 }
@@ -160,9 +170,70 @@ void julglen()
         "Det er ikke din skyld at alle andre siger du overdriver, du ved hvad der virkelig skete den dag.\n" +
         "Du er en super sej panter, du fortjener at blive pink.\n" +
         "Anyways. Du er befinder dig nu i den lille landsby.\n");
+    Console.WriteLine("Tryk 'Enter' for at fortsætte.");
+    Console.ReadLine();
+    lilleLandsby();
 }
 
-void gameOver()
+void lilleLandsby()
+{
+    Console.ForegroundColor = ConsoleColor.Green;
+    Console.WriteLine(
+        "Du vanderer ind i den lille landsby og kigger rundt.\n" +
+        "Det er en meget smuk landsby, det må du indrømme. \n" +
+        "Du går direkte hen til malerboutiquen og prøver at åbne døren, men den rykker sig ikke.\n" +
+        "Du tager et skridt tilbage og kigger rundt, og finder et stykke paper på døren...\n" +
+        "Malerboutiquen åbner først om omkring en time.\n" +
+        "Du har stadig lidt tid at spilde.\n" +
+         "1: Gå ind i en rejebutik \n" + "2: Gå lidt rundt \n" + "3: Tag en lur \n\n");
+    Console.Write("Hvad gør du?: ");
+    int Choice = readChoice(new int[] { 1, 2, 3 });
+    Console.Clear();
+
+    if (Choice == 1)
+    {
+        Console.WriteLine("...");
+        Console.Clear();
+        rejebutik();
+    }
+
+    if (Choice == 2)
+    {
+
+    }
+
+    if (Choice == 3)
+    {
+
+    }
+
+}
+
+void rejebutik()
+{
+    Console.ForegroundColor = ConsoleColor.Green;
+    Console.WriteLine(
+        "De finder dig i rejebutikken, fedt.\n" +
+        "Der er én slags rejse.\n" +
+        "1: Spis reje \n" + "2: Gå \n");
+    Console.Write("Vil du spise?: ");
+    int Choice = readChoice(new int[] { 1, 2 });
+    Console.Clear();
+    if (Choice == 1)
+    {
+        //kæmp mod reje 
+        Console.WriteLine("...");
+        Console.Clear();
+    }
+
+    if (Choice == 2)
+    {
+        Console.WriteLine("Okay, du går ud igen..");
+    }
+
+}
+
+    void gameOver()
 {
     Console.ForegroundColor = ConsoleColor.Red;
     Console.WriteLine("\n Tryk på 'enter' for at prøve igen...");
