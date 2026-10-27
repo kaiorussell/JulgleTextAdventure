@@ -39,7 +39,7 @@ void start()
         "Det eneste problem er, at du ikke ved hvordan man kommer hen til byen.\n\n" +
         "1: Følg floden \n" + "2: Gå gennem træerne. \n\n" +
         "");
-    Console.Write("Hvad gør du: ");
+    Console.Write("Hvad gør du?: ");
     int Choice = readChoice(new int[] { 1, 2 });
     Console.Clear();
 
@@ -60,7 +60,7 @@ void byen()
         "Men gad vide hvor malerboutiquen er..\n" +
         "1: Find et kort \n" + "2: Spørg den søde dame. \n" + "3: Udforsk. \n\n" +
         "");
-    Console.Write("Hvad gør du: ");
+    Console.Write("Hvad gør du?: ");
     int Choice = readChoice(new int[] { 1, 2, 3 });
     Console.Clear();
 
@@ -112,7 +112,7 @@ void mall()
         "Efter at kigge lidt rundt finder du endelig en skærm med et kort.\n" +
         "Men hvordan finder du malerboutiquen gennem dette kort?\n" +
         "1: Hack kortet \n" + "2: Giv op. \n" + "3: Tryk lidt på skærmen og håb for det bedste \n\n");
-    Console.Write("Hvad gør du: ");
+    Console.Write("Hvad gør du?: ");
     int Choice = readChoice(new int[] { 1, 2, 3 });
     Console.Clear();
 
@@ -200,7 +200,7 @@ bool Combat(Enemy enemy)
 
         //spillers tur
         Console.Write("1: Angrib \n2: Bloker\n" +
-            "Hvad gør du: ");
+            "Hvad gør du?: ");
         int input = readChoice(new int[] { 1, 2 });
         Console.Clear();
         if (input == 1)
