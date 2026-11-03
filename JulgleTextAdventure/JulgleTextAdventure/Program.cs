@@ -398,9 +398,11 @@ void julglen()
         "Det var en hård dag for alle, men mest dig. \n" +
         "Ingen vil nogensinde forstå det som du gjorde.\n" +
         "Det er ikke din skyld at alle andre siger du overdriver, du ved hvad der virkelig skete den dag.\n" +
+        "Du plukker et bær og skjuler din sorg" +
         "Du er en super sej panter, du fortjener at blive pink.\n" +
         "Anyways. Du er befinder dig nu i den lille landsby.\n");
     Console.WriteLine("Tryk 'Enter' for at fortsætte.");
+    inventoryConsumableItems.Add(new Consumable("Et (1) bær", "", ItemTypes.Healing));
     Console.ReadLine();
     Console.Clear();
     lilleLandsby();
