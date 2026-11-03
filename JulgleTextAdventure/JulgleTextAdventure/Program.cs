@@ -80,11 +80,12 @@ void byen()
         Enemy SødDame = new Enemy("Sød Dame", 5, 1);
         if (Combat(SødDame))
         {
-            Console.WriteLine("Du absolute destruerer den stakkels dame. \n" +
+            Console.WriteLine("Du absolut destruerer den stakkels dame. \n" +
                 "Du finder dog en lille skærm på jorden ved siden af hende. \n" +
                 "Når du samler den op er den allerede inde på et mini kort! Wow! \n" +
-                "Du finder din kupon og dine læsebriller frem og intaster addressen forsigtigt. \n" +
+                "Du finder din kupon og dine læsebriller frem og indtaster addressen forsigtigt. \n" +
                 "Du finder malerboutiquen, og begynder din rute.\n");
+            //tilføj læbestift som gør at man giver mere skade
             Console.WriteLine("Tryk 'Enter' for at fortsætte.");
             Console.ReadLine();
             Console.Clear();
@@ -157,7 +158,17 @@ void mall()
             "Til gengæld kommer der en vagt, der blev tilkaldt da signalet på en af skærmene blev stoppet \n" +
             "( og de mange klager om dig af de mange mennesker omkring dig. ) \n" +
             "Vagten gør klar til at fange dig! \n");
-        //fight
+
+        Enemy Vagt = new Enemy("Vagt", 3, 2);
+        if (Combat(Vagt))
+        {
+            Console.WriteLine("Jep du flækkede den");
+        }
+        else
+        {
+            Console.WriteLine("du fik flæk");
+        }
+
     }
 }
 
