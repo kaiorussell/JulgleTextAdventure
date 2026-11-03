@@ -6,6 +6,7 @@ using System.Data;
 
 int hp = 5;
 int attack = 1;
+int rejerspist = 0;
 
 Main();
 void Main()
@@ -164,7 +165,7 @@ void julglen()
 {
     Console.ForegroundColor = ConsoleColor.Green;
     Console.WriteLine(
-        "Du wandrer gennem julglen, og tager vejen langs floden, den minder dig næsten om den dag.\n" +
+        "Du vandrer gennem julglen, og tager vejen langs floden, den minder dig næsten om den dag.\n" +
         "Det var en hård dag for alle, men mest dig. \n" +
         "Ingen vil nogensinde forstå det som du gjorde.\n" +
         "Det er ikke din skyld at alle andre siger du overdriver, du ved hvad der virkelig skete den dag.\n" +
@@ -172,14 +173,16 @@ void julglen()
         "Anyways. Du er befinder dig nu i den lille landsby.\n");
     Console.WriteLine("Tryk 'Enter' for at fortsætte.");
     Console.ReadLine();
+    Console.Clear();
     lilleLandsby();
 }
 
 void lilleLandsby()
 {
     Console.ForegroundColor = ConsoleColor.Green;
+    int rejerspist = 0;
     Console.WriteLine(
-        "Du vanderer ind i den lille landsby og kigger rundt.\n" +
+        "Du vandrer ind i den lille landsby og kigger rundt.\n" +
         "Det er en meget smuk landsby, det må du indrømme. \n" +
         "Du går direkte hen til malerboutiquen og prøver at åbne døren, men den rykker sig ikke.\n" +
         "Du tager et skridt tilbage og kigger rundt, og finder et stykke paper på døren...\n" +
@@ -213,8 +216,8 @@ void rejebutik()
 {
     Console.ForegroundColor = ConsoleColor.Green;
     Console.WriteLine(
-        "De finder dig i rejebutikken, fedt.\n" +
-        "Der er én slags rejse.\n" +
+        "Du finder dig i rejebutikken, fedt.\n" +
+        "Der er én slags reje.\n" +
         "1: Spis reje \n" + "2: Gå \n");
     Console.Write("Vil du spise?: ");
     int Choice = readChoice(new int[] { 1, 2 });
@@ -222,8 +225,23 @@ void rejebutik()
     if (Choice == 1)
     {
         //kæmp mod reje 
-        Console.WriteLine("...");
-        Console.Clear();
+        Enemy Reje = new Enemy("Reje", 1, 0);
+        if (Combat(Reje))
+        {
+            Console.WriteLine("Du æder en reje");
+            Console.WriteLine("Tryk 'Enter' for at fortsætte.");
+            rejerspist += 1;
+            if (rejerspist == 50)
+            {
+                rejeWin();
+            }
+            else
+            {
+                Console.ReadLine();
+                Console.Clear();
+                rejebutik();
+            }    
+        }
     }
 
     if (Choice == 2)
@@ -231,6 +249,13 @@ void rejebutik()
         Console.WriteLine("Okay, du går ud igen..");
     }
 
+}
+
+void rejeWin()
+{
+    Console.ForegroundColor = ConsoleColor.Magenta;
+    Console.WriteLine("Du har spist sååååå mange rejer og du har liiidt ondt i maven. \n" +
+        "Du er pink fordi di har pisst rejr ligesom dlmingoer gør. jubi");
 }
 
     void gameOver()
