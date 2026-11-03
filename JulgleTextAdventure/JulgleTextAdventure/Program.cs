@@ -366,7 +366,8 @@ void mall()
                 "'Paul kom ind. Kan du høre os?.'\n" + 
                 "Du prøver pænt at kommunikere at du ikke er Paul og at du bare gerne vil hen til malerboutiquen, men det lyder som altid lidt groft.\n" + 
                 "'RAHHHH rah rah' \n" +
-                "'Paul vi har snakket om de der dyrelyde, men det er modtaget. Malerbotiquen ligger i en lille landsby ikke så langt fra julglen, du ved, der ved siden af Johnny. Du er dog blevet bedre til dyrelydene, har du øvet dig siden sidst? Nå men, Hold os opdateret Paul. '\n");
+                "'Paul vi har snakket om de der dyrelyde, men det er modtaget. Malerbotiquen ligger i en lille landsby ikke så langt fra julglen, du ved, der ved siden af Johnny. \n" +
+                "Du er dog blevet bedre til dyrelydene, har du øvet dig siden sidst? Nå men, Hold os opdateret Paul. '\n");
             Console.WriteLine("Tryk 'Enter' for at fortsætte.");
             inventoryKeyItems.Add(new KeyItem("Walkie talkie", ""));
             Console.ReadLine();
@@ -398,7 +399,7 @@ void julglen()
         "Det var en hård dag for alle, men mest dig. \n" +
         "Ingen vil nogensinde forstå det som du gjorde.\n" +
         "Det er ikke din skyld at alle andre siger du overdriver, du ved hvad der virkelig skete den dag.\n" +
-        "Du plukker et bær og skjuler din sorg" +
+        "Du plukker et bær og skjuler din sorg.\n" +
         "Du er en super sej panter, du fortjener at blive pink.\n" +
         "Anyways. Du er befinder dig nu i den lille landsby.\n");
     Console.WriteLine("Tryk 'Enter' for at fortsætte.");
@@ -484,7 +485,8 @@ void lilleLandsby()
         {
             Console.WriteLine("Efter en tapper, men uvindelig kamp bliver du endlig dræbt af Chantel Dubois. \n" +
                 "Det er ikke noget mysterie, det er trods alt hendes speciale at fange julgle dyr. \n" +
-                "Du kommer aldrig til at blive pink.");
+                "Du kommer aldrig til at blive pink.\n" +
+                "R.I.N.P");
             gameOver();
         }
     }
