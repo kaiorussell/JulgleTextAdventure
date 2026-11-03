@@ -2,15 +2,47 @@
 // string, område er en funtion, 
 using JulgleTextAdventure;
 
-int hp = 5;
+float hp = 5;
 int attack = 1;
-
-Main();
-void Main()
+List<KeyItem> inventoryKeyItems = new List<KeyItem>();
+List<Potion> inventoryConsumableItems = new List<Potion>();
+void ShowStats()
 {
-    Console.ForegroundColor = ConsoleColor.White;
-    gameTitle();
+    Console.WriteLine($"Hp: {hp} Atk: {attack}");
+    Console.WriteLine("Vigtige objekter---");
+    string inventoryString = string.Empty;
+    for (int i = 0; i < inventoryKeyItems.Count; i++)
+    {
+        if (inventoryKeyItems.Count <= 0)
+        {
+            inventoryString = "Tom";
+        }
+        else
+        {
+            inventoryString += inventoryKeyItems[i].name + ", ";
+        }
+    }
+    Console.WriteLine(inventoryString);
+    inventoryString = string.Empty;
+    for (int i = 0; i < inventoryConsumableItems.Count; i++)
+    {
+        if (inventoryConsumableItems.Count <= 0)
+        {
+            inventoryString = "Tom";
+        }
+        else
+        {
+            inventoryString += inventoryConsumableItems[i].name + ", ";
+        }
+    }
+    Console.WriteLine("Drikkevarer---");
+    Console.WriteLine(inventoryString);
+    Console.WriteLine();
 }
+
+
+
+
 
 // Green --> Julge 
 // DarkYellow --> Byen
@@ -18,6 +50,158 @@ void Main()
 // DarkCyan --> Fight
 // Red --> Game Over
 // R.I.N.P = Rest In Not Pink 
+bool Combat(Enemy enemy)
+{
+    string farlighed;
+
+    while (true)
+    {
+        //advarer om næste enemy attack
+        int enemyAttack = enemy.DoAttack();
+        if (enemyAttack > 3)
+        {
+            farlighed = "meget";
+        }
+        else if (enemyAttack > 1)
+        {
+            farlighed = "medium";
+        }
+        else
+        {
+            farlighed = "lidt";
+        }
+
+        while (true)
+        {
+            //spillers tur
+            Console.WriteLine($"{enemy.name} ser {farlighed} farlig ud");
+            ShowStats();
+            Console.WriteLine();
+            Console.Write("1: Angrib \n2: Bloker\n3: Brug item\n" +
+                "Hvad gør du?: ");
+            int input = readChoice(new List<int> { 1, 2, 3 });
+            Console.Clear();
+            if (input == 1)
+            {
+                //attack enemy
+                enemy.currentHP -= attack;
+                Console.WriteLine($"Du kradser {enemy.name} med dine mægtige panter klør og giver {attack} skade.");
+                break;
+            }
+            else if (input == 2)
+            {
+                //bloker enemy
+                enemyAttack = 0;
+                Console.WriteLine($"Du gør klar til at blokere {enemy.name}s næste angreb.");
+                break;
+            }
+            else if (input == 3)
+            {
+                //Use consumable
+                Console.WriteLine($"{enemy.name} ser {farlighed} farlig ud");
+                ShowStats();
+
+                Console.WriteLine("\n0 for tilbage\n1 for at bruge første drikkevare item\n2 for at bruge anden, osv.");
+
+
+                List<int> validValues = new List<int>(); //set valid inventory inputs stufs
+                validValues.Clear();
+                if (inventoryConsumableItems.Count == 0)
+                {
+                    validValues.Add(0);
+                }
+                else
+                {
+                    validValues.Add(0);
+                    for (int i = 1; i <= inventoryConsumableItems.Count; i++)
+                    {
+                        validValues.Add(i);
+                    }
+                }
+
+
+                input = readChoice(validValues);
+                if (input == 0)
+                {
+                    Console.Clear();
+                    continue;
+                }
+                else
+                {
+                    bool validItem = false;
+                    for (int i = 0; i < input; i++)
+                    {
+                        if (i == input - 1)
+                        {
+                            hp += inventoryConsumableItems[i].UsePotion();
+                            inventoryConsumableItems.RemoveAt(i);
+                        }
+                    }
+                    Console.Clear();
+                }
+            }
+        }
+
+        //er enemy død?
+        if (enemy.currentHP <= 0)
+        {
+            return true;
+        }
+
+        //enemy turn
+        hp -= enemyAttack;
+        Console.WriteLine($"{enemy.name} hakker dig {farlighed} og giver {enemyAttack} skade.\n");
+
+        //er du død?
+        if (hp <= 0)
+        {
+            return false;
+        }
+    }
+}
+
+int readChoice(List<int> validInput)
+{
+    while (true)
+    {
+        string input = Console.ReadLine();
+        int choice;
+        if (!int.TryParse(input, out choice))
+        {
+            Console.WriteLine("Det er ikke validt input. Prøv igen.");
+            continue;
+        }
+
+        bool isValid = false;
+        foreach (int i in validInput)
+        {
+            if (choice == i)
+            {
+                isValid = true;
+                break;
+            }
+        }
+
+        if (!isValid)
+        {
+            Console.WriteLine("Det er ikke validt input. Prøv igen.");
+            continue;
+        }
+        else
+        {
+            return choice;
+        }
+
+    }
+}
+Main();
+void Main()
+{
+    Console.ForegroundColor = ConsoleColor.White;
+    gameTitle();
+}
+
+
 void gameTitle()
 {
     Console.WriteLine("Velkommen til Julgle Text Adventure!");
@@ -40,7 +224,7 @@ void start()
         "1: Følg floden \n" + "2: Gå gennem træerne. \n\n" +
         "");
     Console.Write("Hvad gør du?: ");
-    int Choice = readChoice(new int[] { 1, 2 });
+    int Choice = readChoice(new List<int> { 1, 2 });
     Console.Clear();
 
     if (Choice == 1 || Choice == 2)
@@ -61,7 +245,7 @@ void byen()
         "1: Find et kort \n" + "2: Spørg den søde dame. \n" + "3: Udforsk. \n\n" +
         "");
     Console.Write("Hvad gør du?: ");
-    int Choice = readChoice(new int[] { 1, 2, 3 });
+    int Choice = readChoice(new List<int> { 1, 2, 3 });
     Console.Clear();
 
     if (Choice == 1)
@@ -113,7 +297,7 @@ void mall()
         "Men hvordan finder du malerboutiquen gennem dette kort?\n" +
         "1: Hack kortet \n" + "2: Giv op. \n" + "3: Tryk lidt på skærmen og håb for det bedste \n\n");
     Console.Write("Hvad gør du?: ");
-    int Choice = readChoice(new int[] { 1, 2, 3 });
+    int Choice = readChoice(new List<int> { 1, 2, 3 });
     Console.Clear();
 
     if (Choice == 1)
@@ -176,96 +360,5 @@ void youWin()
 
 }
 
-bool Combat(Enemy enemy)
-{
-    string farlighed;
 
-    while (true)
-    {
-        //advarer om næste enemy attack
-        int enemyAttack = enemy.DoAttack();
-        if (enemyAttack > 3)
-        {
-            farlighed = "meget";
-        }
-        else if (enemyAttack > 1)
-        {
-            farlighed = "medium";
-        }
-        else
-        {
-            farlighed = "lidt";
-        }
-        Console.WriteLine($"{enemy.name} ser {farlighed} farlig ud, du har {hp} hp.");
-
-        //spillers tur
-        Console.Write("1: Angrib \n2: Bloker\n" +
-            "Hvad gør du?: ");
-        int input = readChoice(new int[] { 1, 2 });
-        Console.Clear();
-        if (input == 1)
-        {
-            //attack enemy
-            enemy.currentHP -= attack;
-            Console.WriteLine($"Du kradser {enemy.name} med dine mægtige panter klør og giver {attack} skade.");
-        }
-        else if (input == 2)
-        {
-            //bloker enemy
-            enemyAttack = 0;
-            Console.WriteLine($"Du gør klar til at blokere {enemy.name}s næste angreb.");
-        }
-
-        //er enemy død?
-        if (enemy.currentHP <= 0)
-        {
-            return true;
-        }
-
-        //enemy turn
-        hp -= enemyAttack;
-        Console.WriteLine($"{enemy.name} hakker dig {farlighed} og giver {enemyAttack} skade.\n");
-
-        //er du død?
-        if (hp <= 0)
-        {
-            return false;
-        }
-    }
-}
-
-int readChoice(Array validInput)
-{
-    while (true)
-    {
-        string input = Console.ReadLine();
-        int choice;
-        if (!int.TryParse(input, out choice))
-        {
-            Console.WriteLine("Det er ikke validt input. Prøv igen.");
-            continue;
-        }
-
-        bool isValid = false;
-        foreach (int i in validInput)
-        {
-            if (choice == i)
-            {
-                isValid = true;
-                break;
-            }
-        }
-
-        if (!isValid)
-        {
-            Console.WriteLine("Det er ikke validt input. Prøv igen.");
-            continue;
-        }
-        else
-        {
-            return choice;
-        }
-                
-    }
-}
 

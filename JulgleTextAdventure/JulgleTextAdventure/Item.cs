@@ -21,10 +21,9 @@ namespace JulgleTextAdventure
 
     public class Consumable : Item
     {
-        int testInt;
-        public Consumable(string name, string inspectionText, int number) : base(name, inspectionText)
+        public Consumable(string name, string inspectionText) : base(name, inspectionText)
         {
-            this.testInt = number;
+            
         }
 
         public virtual void UseItem()
@@ -43,4 +42,19 @@ namespace JulgleTextAdventure
     }
 
     //LIKE THE SPECIFIC CONSUMABLES
+
+    public class Potion : Consumable
+    {
+        float healingValue;
+
+        public Potion(string name, string inspectionText, float healingValue) : base(name, inspectionText)
+        {
+            this.healingValue = healingValue;
+        }
+
+        public float UsePotion()
+        {
+            return healingValue;
+        }
+    }
 }
