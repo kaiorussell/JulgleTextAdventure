@@ -27,6 +27,9 @@ void gameTitle()
     Console.WriteLine("Tryk 'Enter' for at begynde.");
     Console.ReadLine();
     Console.Clear();
+    int hp = 5;
+    int attack = 1;
+    int rejerspist = 0;
     start();
 }
 
@@ -284,7 +287,8 @@ void rejeWin()
 {
     Console.ForegroundColor = ConsoleColor.Magenta;
     Console.WriteLine("Du har spist sååååå mange rejer og du har liiidt ondt i maven. \n" +
-        "Du er pink fordi du har spist rejer ligesom flamingoer gør. jubi");
+        "Du er proppet fuld af et eller andet stof i rejerne, nok det der gør dem pink, og også det der gør flamingoer pink." +
+        "Derfor er du også blevet pink. fucking episk");
 }
 
     void gameOver()
