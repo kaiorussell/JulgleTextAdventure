@@ -225,6 +225,11 @@ void gameTitle()
     int rejerspist = 0;
     inventoryConsumableItems.Clear();
     inventoryKeyItems.Clear();
+=======
+    hp = 5;
+    attack = 1;
+    rejerspist = 0;
+>>>>>>> 618d92dbb42007273645962acc7afcc4f097d8e0
     start();
 }
 
