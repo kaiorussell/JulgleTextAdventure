@@ -17,6 +17,7 @@ namespace JulgleTextAdventure
         public Enemy(string Name, float MaxHP, int Attack)
         {
             name = Name;
+            //kortlink.dk/2vbzp
             maxHP = MaxHP;
             currentHP = maxHP;
             attack = Attack;

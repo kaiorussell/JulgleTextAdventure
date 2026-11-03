@@ -1,5 +1,4 @@
-﻿﻿
-// string, område er en funtion, 
+﻿//kortlink.dk/2vbzr﻿
 using JulgleTextAdventure;
 using System;
 using System.Data;
@@ -17,14 +16,7 @@ void ShowStats()
     string inventoryString = string.Empty;
     for (int i = 0; i < inventoryKeyItems.Count; i++)
     {
-        if (inventoryKeyItems.Count <= 0)
-        {
-            inventoryString = "Tom";
-        }
-        else
-        {
-            inventoryString += inventoryKeyItems[i].name + ", ";
-        }
+        inventoryString += inventoryKeyItems[i].name + ", ";
     }
     Console.WriteLine(inventoryString);
     inventoryString = string.Empty;
@@ -230,6 +222,8 @@ void gameTitle()
     int hp = 5;
     int attack = 1;
     int rejerspist = 0;
+    inventoryConsumableItems.Clear();
+    inventoryKeyItems.Clear();
     start();
 }
 
@@ -245,11 +239,12 @@ void start()
         "Det eneste problem er, at du ikke ved hvordan man kommer hen til byen.\n\n" +
         "1: Følg floden \n" + "2: Gå gennem træerne. \n\n" +
         "");
+    inventoryKeyItems.Add(new KeyItem("La Malerboutique el Kupoña", ""));
     Console.Write("Hvad gør du?: ");
     int Choice = readChoice(new List<int> { 1, 2 });
     Console.Clear();
 
-    if (Choice == 1 || Choice == 2)
+    if (Choice == 1 || Choice == 2) //Hej Håkon!!!!!!
     {
         byen();
     }
@@ -284,11 +279,12 @@ void byen()
         if (Combat(SødDame))
         {
             Console.WriteLine("Du absolut destruerer den stakkels dame. \n" +
+                "Du stjal også hendes læbestift\n" +
                 "Du finder dog en lille skærm på jorden ved siden af hende. \n" +
                 "Når du samler den op er den allerede inde på et mini kort! Wow! \n" +
                 "Du finder din kupon og dine læsebriller frem og indtaster addressen forsigtigt. \n" +
                 "Du finder malerboutiquen, og begynder din rute.\n");
-            //tilføj læbestift som gør at man giver mere skade
+            inventoryConsumableItems.Add(new Consumable("Læbestift", "", ItemTypes.Healing));
             Console.WriteLine("Tryk 'Enter' for at fortsætte.");
             Console.ReadLine();
             Console.Clear();
@@ -372,7 +368,7 @@ void mall()
                 "'RAHHHH rah rah' \n" +
                 "'Paul vi har snakket om de der dyrelyde, men det er modtaget. Malerbotiquen ligger i en lille landsby ikke så langt fra julglen, du ved, der ved siden af Johnny. Du er dog blevet bedre til dyrelydene, har du øvet dig siden sidst? Nå men, Hold os opdateret Paul. '\n");
             Console.WriteLine("Tryk 'Enter' for at fortsætte.");
-            // Giv walkie talkie, Key item
+            inventoryKeyItems.Add(new KeyItem("Walkie talkie", ""));
             Console.ReadLine();
             Console.Clear();
             julglen();

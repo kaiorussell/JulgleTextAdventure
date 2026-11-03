@@ -8,7 +8,7 @@ namespace JulgleTextAdventure
 {
     [Flags]
     public enum ItemTypes
-    {
+    { //kortlink.dk/2vbzn
         Healing,
         AttackIncrease
     }
@@ -33,7 +33,7 @@ namespace JulgleTextAdventure
         {
             this.type = type;
         }
-
+        
         public virtual float UseItem()
         {
             return itemValue;
