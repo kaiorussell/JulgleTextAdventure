@@ -219,17 +219,14 @@ void gameTitle()
     Console.WriteLine("Tryk 'Enter' for at begynde.");
     Console.ReadLine();
     Console.Clear();
-<<<<<<< HEAD
-    int hp = 5;
-    int attack = 1;
-    int rejerspist = 0;
+
     inventoryConsumableItems.Clear();
     inventoryKeyItems.Clear();
-=======
+
     hp = 5;
     attack = 1;
     rejerspist = 0;
->>>>>>> 618d92dbb42007273645962acc7afcc4f097d8e0
+
     start();
 }
 
