@@ -32,8 +32,10 @@ void ShowStats()
         }
     }
     Console.WriteLine("Drikkevarer---");
-    Console.WriteLine(inventoryString);
-    Console.WriteLine();
+    if (inventoryConsumableItems.Count > 0)
+    {
+        Console.WriteLine(inventoryString);
+    }
 }
 
 
