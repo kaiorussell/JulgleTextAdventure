@@ -540,6 +540,23 @@ void rejeWin()
     youWin();
 }
 
+void malerBoutique() //https://llk.dk/j1iay0 
+{
+    Console.ForegroundColor = ConsoleColor.DarkGray;
+    Console.WriteLine(
+        "Du var .\n" +
+        ".\n" +
+        ".\n");
+    Console.Write("Hvad gør du?: ");
+    int Choice = readChoice(new List<int> { 1, 2 });
+    Console.Clear();
+
+    if (Choice == 1 || Choice == 2)
+    {
+        youWin();
+    }
+}
+
 void gameOver()
 {
     Console.ForegroundColor = ConsoleColor.Red;
