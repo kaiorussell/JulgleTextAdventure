@@ -94,9 +94,9 @@ void byen()
         else
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Du blev smækket over hovedet indtil du følte fugle flyve rundt om dit hoved! \n" +
-                "Du følte dig pinligt berørt og da du tjekkede dine lommer havde du mistede din malerboutique kupon!! \n" +
-                "Du løb tilbage til julglen grædende. \n" +
+            Console.WriteLine("Du bliver smækket over hovedet indtil du føler fugle flyve rundt om dit hoved! \n" +
+                "Du føler dig pinligt berørt og når du tjekker dine lommer har du mistet din malerboutique kupon!! \n" +
+                "Du løber tilbage til julglen grædende. \n" +
                 "Du fortjener ikke at blive pink. \n" +
                 "R.I.N.P, Game over.");
             gameOver();
