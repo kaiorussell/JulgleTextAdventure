@@ -524,6 +524,15 @@ void rejebutik()
             }    
         }
     }
+    if (Choice == 2)
+    {
+         Console.WriteLine("Okay, du går ud igen.. \n" +
+             "Wow. Malerboutiquen er endelig åben! Du løber derhen med det samme! \n" );
+        Console.WriteLine("Tryk 'Enter' for at fortsætte.");
+        Console.ReadLine();
+        Console.Clear();
+        malerBoutique();
+    }
 
     if (Choice == 2)
     {
@@ -552,7 +561,7 @@ void malerBoutique() //https://llk.dk/j1iay0
         "Efter du er kommet til krafterne igen fra hostenanfaldet kigger du rundt i rummet.\n" +
         "Forskelligt farvede bøtter med maling står på hylderne som dækker væggene fra gulv til loft.\n" +
         "Du scanner hurtigt efter den ene farve der betyder noget for dig. \n" +
-        "Du tager forsigtigt bøtten med pink maling ned fra hylden og går hen til kassen for at betale med din Kupoña." +
+        "Du tager forsigtigt bøtten med pink maling ned fra hylden og går hen til kassen for at betale med din Kupoña.\n \n" +
         "1: Hæld malingen ud over dig \n" + "2: Mal dig selv med malingen \n");
     Console.Write("Hvad gør du?: ");
     int Choice = readChoice(new List<int> { 1, 2 });
@@ -560,12 +569,14 @@ void malerBoutique() //https://llk.dk/j1iay0
 
     if (Choice == 1 || Choice == 2)
     {
+        Console.ForegroundColor = ConsoleColor.Magenta;
         Console.WriteLine("Du er helt dækket i pink maling.\n" +
             "Du er pink.\n" +
             "Rest In Pink");
         youWin();
     }
 }
+
 
 void gameOver()
 {
@@ -578,7 +589,7 @@ void gameOver()
 
 void youWin()
 {
-    Console.ForegroundColor = ConsoleColor.Green;
+    Console.ForegroundColor = ConsoleColor.Magenta;
     Console.WriteLine("\n Tryk på 'enter' for at prøve igen...");
     Console.ReadLine();
     Console.Clear();
