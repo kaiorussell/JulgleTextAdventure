@@ -456,7 +456,8 @@ void lilleLandsby()
         else
         {
             Console.WriteLine("Efter en hård kamp kører bilen dig ned og du dør. \n" +
-                "Du kommer aldrig til at blive pink.");
+                "Du kommer aldrig til at blive pink.\n" +
+                "R.I.N.P.");
             gameOver();
         }
     }
