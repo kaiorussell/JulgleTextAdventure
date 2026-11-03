@@ -225,8 +225,6 @@ void lilleLandsby()
 
     if (Choice == 1)
     {
-        Console.WriteLine("...");
-        Console.Clear();
         rejebutik();
     }
 
@@ -259,7 +257,6 @@ void rejebutik()
         if (Combat(Reje))
         {
             Console.WriteLine("Du æder en reje");
-            Console.WriteLine("Tryk 'Enter' for at fortsætte.");
             rejerspist += 1;
             if (rejerspist == 50)
             {
@@ -267,6 +264,7 @@ void rejebutik()
             }
             else
             {
+                Console.WriteLine("Tryk 'Enter' for at fortsætte.");
                 Console.ReadLine();
                 Console.Clear();
                 rejebutik();
@@ -277,6 +275,7 @@ void rejebutik()
     if (Choice == 2)
     {
         Console.WriteLine("Okay, du går ud igen..");
+        lilleLandsby();
     }
 
 }
