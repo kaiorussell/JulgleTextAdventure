@@ -38,10 +38,6 @@ void ShowStats()
     }
 }
 
-
-
-
-
 // Green --> Julge 
 // DarkYellow --> Byen
 // Gray --> Mall
@@ -242,8 +238,7 @@ void start()
         "Hele dit liv har du drømmet om at være pink, men du har aldrig vidst hvordan.\n" +
         "Alt dette ændrer sig i dag, hvor du modtager en kupon til en malerboutique i byen.\n" +
         "Det eneste problem er, at du ikke ved hvordan man kommer hen til byen.\n\n" +
-        "1: Følg floden \n" + "2: Gå gennem træerne. \n\n" +
-        "");
+        "1: Følg floden \n" + "2: Gå gennem træerne. \n\n");
     inventoryKeyItems.Add(new KeyItem("La Malerboutique el Kupoña", ""));
     Console.Write("Hvad gør du?: ");
     int Choice = readChoice(new List<int> { 1, 2 });
@@ -263,7 +258,7 @@ void byen()
     Console.WriteLine(
         "Du befinder dig nu i en mellemstor by.\n" +
         "Der er bygninger så langt øjet rækker.\n" +
-        "Men gad vide hvor malerboutiquen er..\n" +
+        "Men gad vide hvor malerboutiquen er..\n \n" +
         "1: Find et kort \n" + "2: Spørg den søde dame \n" + "3: Udforsk \n\n" );
     Console.Write("Hvad gør du?: ");
     int Choice = readChoice(new List<int> { 1, 2, 3 });
@@ -413,7 +408,7 @@ void julglen()
 
 void lilleLandsby()
 {
-    Console.ForegroundColor = ConsoleColor.Green;
+    Console.ForegroundColor = ConsoleColor.DarkGreen;
     int rejerspist = 0;
     Console.WriteLine(
         "Du vandrer ind i den lille landsby og kigger rundt.\n" +
@@ -421,7 +416,7 @@ void lilleLandsby()
         "Du går direkte hen til malerboutiquen og prøver at åbne døren, men den rykker sig ikke.\n" +
         "Du tager et skridt tilbage og kigger rundt, og finder et stykke paper på døren...\n" +
         "Malerboutiquen åbner først om omkring en time.\n" +
-        "Du har stadig lidt tid at spilde.\n" +
+        "Du har stadig lidt tid at spilde.\n \n" +
          "1: Gå ind i en rejebutik \n" + "2: Gå lidt rundt \n" + "3: Tag en lur \n\n");
     Console.Write("Hvad gør du?: ");
     int Choice = readChoice(new List<int> { 1, 2, 3 });
@@ -449,7 +444,7 @@ void lilleLandsby()
             Console.WriteLine("Du flænser bilen i småstykker med dine skarpe klør. \n" +
                 "Det er ret sejt. \n" +
                 "Lidt som en actionfilm. \n" +
-                "Du føler dig som wolverine.");
+                "Du føler dig som Wolverine.");
                 Console.WriteLine("Tryk 'Enter' for at fortsætte.");
                 Console.ReadLine();
                 Console.Clear();
@@ -538,7 +533,8 @@ void rejeWin()
     Console.ForegroundColor = ConsoleColor.Magenta;
     Console.WriteLine("Du har spist sååååå mange rejer og du har liiidt ondt i maven. \n" +
         "Du er proppet fuld af et eller andet stof i rejerne, nok det der gør dem pink, og også det der gør flamingoer pink." +
-        "Derfor er du også blevet pink. fucking episk");
+        "Derfor er du også blevet pink. fucking episk \n" +
+        "Rest In Pink");
     youWin();
 }
 
@@ -546,15 +542,21 @@ void malerBoutique() //https://llk.dk/j1iay0
 {
     Console.ForegroundColor = ConsoleColor.DarkGray;
     Console.WriteLine(
-        "Du var .\n" +
-        ".\n" +
-        ".\n");
+        "Du er endelig ankommet til det sted du altid har ønsket at være. Malerboutiquen.\n" +
+        "Du tager en dyb indånding for at absorbere sejren, men får et pludseligt hosteanfald.\n" +
+        "Efter du er kommet til krafterne igen fra hostenanfaldet kigger du rundt i rummet.\n" +
+        "Forskelligt farvede bøtter med maling står på hylderne som dækker væggene fra gulv til loft.\n" +
+        "Du scanner hurtigt efter den ene farve der betyder noget for dig. \n" +
+        "Du tager forsigtigt bøtten med pink maling ned fra hylden og går hen til kassen for at betale med din Kupoña." +
+        "1: Hæld malingen ud over dig \n" + "2: Mal dig selv med malingen \n");
     Console.Write("Hvad gør du?: ");
     int Choice = readChoice(new List<int> { 1, 2 });
     Console.Clear();
 
     if (Choice == 1 || Choice == 2)
     {
+        Console.WriteLine("Du er helt dækket i pink maling.\n" +
+            "Du er pink.");
         youWin();
     }
 }
@@ -570,5 +572,9 @@ void gameOver()
 
 void youWin()
 {
-
+    Console.ForegroundColor = ConsoleColor.Green;
+    Console.WriteLine("\n Tryk på 'enter' for at prøve igen...");
+    Console.ReadLine();
+    Console.Clear();
+    Main();
 }
