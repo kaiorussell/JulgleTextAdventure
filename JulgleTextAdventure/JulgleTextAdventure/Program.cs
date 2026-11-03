@@ -227,9 +227,9 @@ void gameTitle()
     Console.WriteLine("Tryk 'Enter' for at begynde.");
     Console.ReadLine();
     Console.Clear();
-    int hp = 5;
-    int attack = 1;
-    int rejerspist = 0;
+    hp = 5;
+    attack = 1;
+    rejerspist = 0;
     start();
 }
 
@@ -280,7 +280,7 @@ void byen()
     {
         Console.WriteLine("Du spørger den søde dame om vej til malerboutiquen. \n" +
             "Damen skriger og gør klar til at slå dig med sin taske! \n");
-        Enemy SødDame = new Enemy("Sød Dame", 5, 1);
+        Enemy SødDame = new Enemy("Sød Dame", 3, 1);
         if (Combat(SødDame))
         {
             Console.WriteLine("Du absolut destruerer den stakkels dame. \n" +
@@ -433,14 +433,63 @@ void lilleLandsby()
 
     if (Choice == 2)
     {
-
+        //Kæmp mod bil
+        Console.WriteLine("Du går lidt rundt og pludselig finder du dig selv i midten af en motorvej. \n" +
+            "Heldigvis er der kun en bil på vejen. \n" +
+            "... \n" +
+            "Bilen kører efter dig. \n" +
+            "Den har onde øjne.");
+        Console.WriteLine("Tryk 'Enter' for at fortsætte.");
+        Console.ReadLine();
+        Console.Clear();
+        Enemy Bil = new Enemy("Bil", 4, 2);
+        if (Combat(Bil))
+        {
+            Console.WriteLine("Du flænser bilen i småstykker med dine skarpe klør. \n" +
+                "Det er ret sejt. \n" +
+                "Lidt som en actionfilm. \n" +
+                "Du føler dig som wolverine.");
+                Console.WriteLine("Tryk 'Enter' for at fortsætte.");
+                Console.ReadLine();
+                Console.Clear();
+                lilleLandsby();
+        }
+        else
+        {
+            Console.WriteLine("Efter en hård kamp kører bilen dig ned og du dør. \n" +
+                "Du kommer aldrig til at blive pink.");
+            gameOver();
+        }
     }
 
     if (Choice == 3)
     {
-
+        //lur
+        Console.WriteLine("Du ligger dig ned for at tage en dejlig afslappende lur, og du når lige at falde i søvn inden du igen pludseligt bliver vækket. \n" +
+            "Nogen træder hårdt på din endnu ikke pinke hale, og du springer 51 meter op luften. \n" +
+            "Når du endelig lander få meter fra hvor du sov ser du hende. \n" +
+            "Chantel Dubois. \n" +
+            "'Det er mig, Chantel Dubois,' siger hun. \n" +
+            "'Vidste du, at hp står for Hasty Hag Percentages?' \n" +
+            "Hun sprinter efter dig i fuld fart.");
+        Console.WriteLine("Tryk 'Enter' for at fortsætte.");
+        Console.ReadLine();
+        Console.Clear();
+        //chantel
+        Enemy Chantel = new Enemy("Chantel Dubois", 1000000, 1);
+        if (Combat(Chantel))
+        {
+            Console.WriteLine("Du besejrede Chantel Dubois. Hvordan. Dette er umuligt. Du har vundet");
+            youWin();
+        }
+        else
+        {
+            Console.WriteLine("Efter en tapper, men uvindelig kamp bliver du endlig dræbt af Chantel Dubois. \n" +
+                "Det er ikke noget mysterie, det er trods alt hendes speciale at fange julgle dyr. \n" +
+                "Du kommer aldrig til at blive pink.");
+            gameOver();
+        }
     }
-
 }
 
 void rejebutik()
@@ -461,7 +510,7 @@ void rejebutik()
         {
             Console.WriteLine("Du æder en reje");
             rejerspist += 1;
-            if (rejerspist == 50)
+            if (rejerspist == 30)
             {
                 rejeWin();
             }
@@ -489,6 +538,7 @@ void rejeWin()
     Console.WriteLine("Du har spist sååååå mange rejer og du har liiidt ondt i maven. \n" +
         "Du er proppet fuld af et eller andet stof i rejerne, nok det der gør dem pink, og også det der gør flamingoer pink." +
         "Derfor er du også blevet pink. fucking episk");
+    youWin();
 }
 
 void gameOver()
