@@ -159,14 +159,33 @@ void mall()
             "( og de mange klager om dig af de mange mennesker omkring dig. ) \n" +
             "Vagten gør klar til at fange dig! \n");
 
-        Enemy Vagt = new Enemy("Vagt", 3, 2);
+        Enemy Vagt = new Enemy("Vagt", 5, 1);
         if (Combat(Vagt))
         {
-            Console.WriteLine("Jep du flækkede den");
+            Console.WriteLine("Du hakker ham i stykker, han dør. \n" + 
+                "Du stjæler hans firkantet tale ting, den laver en kradsende lyd og du høre en stemme komme igennem. \n" + 
+                "'Paul kom ind. Kan du høre os?.'\n" + 
+                "Du prøver pænt at kommunikere at du ikke er Paul og at du bare gerne vil hen til malerboutiquen, men det lyder som altid lidt groft.\n" + 
+                "'RAHHHH rah rah' \n" +
+                "'Paul vi har snakket om de der dyrelyde, men det er modtaget. Malerbotiquen ligger i en lille landsby ikke så langt fra julglen, du ved, der ved siden af Johnny. Du er dog blevet bedre til dyrelydene, har du øvet dig siden sidst? Nå men, Hold os opdateret Paul. '\n");
+            Console.WriteLine("Tryk 'Enter' for at fortsætte.");
+            // Giv walkie talkie, Key item
+            Console.ReadLine();
+            Console.Clear();
+            julglen();
         }
         else
         {
-            Console.WriteLine("du fik flæk");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Av av av. Du fik lidt tæv. \n" + 
+                "Vagten tager din næsten bevidstløse form og det ligner han laver et opkald på hans firkantet tale ting. Du hører lidt af samtalen. \n" + 
+                "'Rasmus jeg lyver ikke! Jeg har en bedvidstløs panther i storcenteret! uh huh..' \n" + 
+                "'Nej, jeg lavede ikke en panther lyd Rasmus, jeg slog den bevidstløs.. Ja, ja virkelig.' \n" + 
+                "'Zoo? Ja det lyder da som en god ide.. Rasmus kan du ikke sådan, ringe til nogen for at hjælpe mig.. Okay.. Så må jeg vente..' \n" +
+                "Du besvimmede og vågnede kort efter da vagten skulle aflevere dig til nogen med meget grej. Vagten begynder at langsomt svæve op ad.. ??\n" + 
+                "'Tak for hjælpen.. Jeg har fundet mig selv nu.. Jeg hedder Paullllll. Med et L..' \n" + 
+                "Du har ingen ide om hvad kigger på lige nu. Du besvimer igen og vågner op i en zoo. Du bliver nu aldrig pink. R.I.N.P. \n");
+            gameOver();
         }
 
     }
@@ -266,7 +285,7 @@ void rejeWin()
 {
     Console.ForegroundColor = ConsoleColor.Magenta;
     Console.WriteLine("Du har spist sååååå mange rejer og du har liiidt ondt i maven. \n" +
-        "Du er pink fordi di har pisst rejr ligesom dlmingoer gør. jubi");
+        "Du er pink fordi du har spist rejer ligesom flamingoer gør. jubi");
 }
 
     void gameOver()
