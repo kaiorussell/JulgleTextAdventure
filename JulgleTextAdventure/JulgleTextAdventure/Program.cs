@@ -318,7 +318,7 @@ void mall()
     Console.WriteLine(
         "Du befinder dig nu i dette 'storcenter'.\n" +
         "Efter at kigge lidt rundt finder du endelig en skærm med et kort.\n" +
-        "Men hvordan finder du malerboutiquen gennem dette kort?\n" +
+        "Men hvordan finder du malerboutiquen gennem dette kort?\n \n" +
         "1: Hack kortet \n" + "2: Giv op \n" + "3: Tryk lidt på skærmen og håb for det bedste \n\n");
     Console.Write("Hvad gør du?: ");
     int Choice = readChoice(new List<int> { 1, 2, 3 });
