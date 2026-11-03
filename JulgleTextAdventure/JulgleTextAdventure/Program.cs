@@ -563,7 +563,6 @@ void malerBoutique() //https://llk.dk/j1iay0
         "Du scanner hurtigt efter den ene farve der betyder noget for dig. \n" +
         "Du tager forsigtigt bøtten med pink maling ned fra hylden og går hen til kassen for at betale med din Kupoña.\n \n" +
         "1: Hæld malingen ud over dig \n" + "2: Mal dig selv med malingen \n");
-        "Du tager forsigtigt bøtten med pink maling ned fra hylden og går hen til kassen for at betale med din Kupoña.");
 
     bool slopKey = false;
     for (int i = 0; i < inventoryKeyItems.Count; i++)
