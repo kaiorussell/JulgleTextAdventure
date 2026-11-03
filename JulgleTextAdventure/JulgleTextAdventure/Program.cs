@@ -552,8 +552,9 @@ void malerBoutique() //https://llk.dk/j1iay0
         "Efter du er kommet til krafterne igen fra hostenanfaldet kigger du rundt i rummet.\n" +
         "Forskelligt farvede bøtter med maling står på hylderne som dækker væggene fra gulv til loft.\n" +
         "Du scanner hurtigt efter den ene farve der betyder noget for dig. \n" +
-        "Du tager forsigtigt bøtten med pink maling ned fra hylden og går hen til kassen for at betale med din Kupoña." +
-        "1: Hæld malingen ud over dig \n" + "2: Mal dig selv med malingen \n");
+        "Du tager forsigtigt bøtten med pink maling ned fra hylden og går hen til kassen for at betale med din Kupoña.");
+    //kaio gør det her
+    Console.WriteLine("1: Hæld malingen ud over dig \n" + "2: Mal dig selv med malingen \n");
     Console.Write("Hvad gør du?: ");
     int Choice = readChoice(new List<int> { 1, 2 });
     Console.Clear();
