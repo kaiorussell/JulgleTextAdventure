@@ -16,7 +16,7 @@ namespace JulgleTextAdventure
     public class Item
     {
         public string name = "Item";
-        public string inpectionText = "ItemInpectionText";
+        public string inpectionText = "ItemInpectionText"; //Ik tænk på det
 
         public Item(string name, string inpectionText)
         {
