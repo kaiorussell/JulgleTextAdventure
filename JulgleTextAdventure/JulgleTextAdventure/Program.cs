@@ -36,10 +36,6 @@ void ShowStats()
     Console.WriteLine();
 }
 
-
-
-
-
 // Green --> Julge 
 // DarkYellow --> Byen
 // Gray --> Mall
@@ -240,8 +236,7 @@ void start()
         "Hele dit liv har du drømmet om at være pink, men du har aldrig vidst hvordan.\n" +
         "Alt dette ændrer sig i dag, hvor du modtager en kupon til en malerboutique i byen.\n" +
         "Det eneste problem er, at du ikke ved hvordan man kommer hen til byen.\n\n" +
-        "1: Følg floden \n" + "2: Gå gennem træerne. \n\n" +
-        "");
+        "1: Følg floden \n" + "2: Gå gennem træerne. \n\n");
     inventoryKeyItems.Add(new KeyItem("La Malerboutique el Kupoña", ""));
     Console.Write("Hvad gør du?: ");
     int Choice = readChoice(new List<int> { 1, 2 });
@@ -261,7 +256,7 @@ void byen()
     Console.WriteLine(
         "Du befinder dig nu i en mellemstor by.\n" +
         "Der er bygninger så langt øjet rækker.\n" +
-        "Men gad vide hvor malerboutiquen er..\n" +
+        "Men gad vide hvor malerboutiquen er..\n \n" +
         "1: Find et kort \n" + "2: Spørg den søde dame \n" + "3: Udforsk \n\n" );
     Console.Write("Hvad gør du?: ");
     int Choice = readChoice(new List<int> { 1, 2, 3 });
@@ -411,7 +406,7 @@ void julglen()
 
 void lilleLandsby()
 {
-    Console.ForegroundColor = ConsoleColor.Green;
+    Console.ForegroundColor = ConsoleColor.DarkGreen;
     int rejerspist = 0;
     Console.WriteLine(
         "Du vandrer ind i den lille landsby og kigger rundt.\n" +
@@ -419,7 +414,7 @@ void lilleLandsby()
         "Du går direkte hen til malerboutiquen og prøver at åbne døren, men den rykker sig ikke.\n" +
         "Du tager et skridt tilbage og kigger rundt, og finder et stykke paper på døren...\n" +
         "Malerboutiquen åbner først om omkring en time.\n" +
-        "Du har stadig lidt tid at spilde.\n" +
+        "Du har stadig lidt tid at spilde.\n \n" +
          "1: Gå ind i en rejebutik \n" + "2: Gå lidt rundt \n" + "3: Tag en lur \n\n");
     Console.Write("Hvad gør du?: ");
     int Choice = readChoice(new List<int> { 1, 2, 3 });
@@ -447,7 +442,7 @@ void lilleLandsby()
             Console.WriteLine("Du flænser bilen i småstykker med dine skarpe klør. \n" +
                 "Det er ret sejt. \n" +
                 "Lidt som en actionfilm. \n" +
-                "Du føler dig som wolverine.");
+                "Du føler dig som Wolverine.");
                 Console.WriteLine("Tryk 'Enter' for at fortsætte.");
                 Console.ReadLine();
                 Console.Clear();
