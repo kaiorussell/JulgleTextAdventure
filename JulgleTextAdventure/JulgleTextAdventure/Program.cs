@@ -531,7 +531,8 @@ void rejeWin()
     Console.ForegroundColor = ConsoleColor.Magenta;
     Console.WriteLine("Du har spist sååååå mange rejer og du har liiidt ondt i maven. \n" +
         "Du er proppet fuld af et eller andet stof i rejerne, nok det der gør dem pink, og også det der gør flamingoer pink." +
-        "Derfor er du også blevet pink. fucking episk");
+        "Derfor er du også blevet pink. fucking episk \n" +
+        "Rest In Pink");
     youWin();
 }
 
@@ -539,15 +540,21 @@ void malerBoutique() //https://llk.dk/j1iay0
 {
     Console.ForegroundColor = ConsoleColor.DarkGray;
     Console.WriteLine(
-        "Du var .\n" +
-        ".\n" +
-        ".\n");
+        "Du er endelig ankommet til det sted du altid har ønsket at være. Malerboutiquen.\n" +
+        "Du tager en dyb indånding for at absorbere sejren, men får et pludseligt hosteanfald.\n" +
+        "Efter du er kommet til krafterne igen fra hostenanfaldet kigger du rundt i rummet.\n" +
+        "Forskelligt farvede bøtter med maling står på hylderne som dækker væggene fra gulv til loft.\n" +
+        "Du scanner hurtigt efter den ene farve der betyder noget for dig. \n" +
+        "Du tager forsigtigt bøtten med pink maling ned fra hylden og går hen til kassen for at betale med din Kupoña." +
+        "1: Hæld malingen ud over dig \n" + "2: Mal dig selv med malingen \n");
     Console.Write("Hvad gør du?: ");
     int Choice = readChoice(new List<int> { 1, 2 });
     Console.Clear();
 
     if (Choice == 1 || Choice == 2)
     {
+        Console.WriteLine("Du er helt dækket i pink maling.\n" +
+            "Du er pink.");
         youWin();
     }
 }
@@ -563,5 +570,9 @@ void gameOver()
 
 void youWin()
 {
-
+    Console.ForegroundColor = ConsoleColor.Green;
+    Console.WriteLine("\n Tryk på 'enter' for at prøve igen...");
+    Console.ReadLine();
+    Console.Clear();
+    Main();
 }
