@@ -575,7 +575,12 @@ void malerBoutique() //https://llk.dk/j1iay0
     }
     if (slopKey)
     {
-
+        Console.WriteLine("\nDu trykker på den rektangulære taledims en sidste gang.\n" +
+            "'Rah Rah Rah Raaah,' siger du ind i dimsen.\n" +
+            "'Godt at høre fra dig igen Paul, jeg er glad for at du fandt frem til malerboutiquen.'\n" +
+            "...\n" +
+            "'Paul... Jeg har egentlig noget jeg gerne vil fortælle dig-'\n" +
+            "Du kommer til at tabe den firkantede taledims og den stopper med at lave lyde.\n\n");
     }
 
     Console.WriteLine("1: Hæld malingen ud over dig \n" + "2: Mal dig selv med malingen \n");
