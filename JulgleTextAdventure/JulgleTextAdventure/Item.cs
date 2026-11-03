@@ -29,9 +29,10 @@ namespace JulgleTextAdventure
     {
         public ItemTypes type;
         public float itemValue;
-        public Consumable(string name, string inspectionText, ItemTypes type) : base(name, inspectionText)
+        public Consumable(string name, string inspectionText, ItemTypes type, float itemValue) : base(name, inspectionText)
         {
             this.type = type;
+            this.itemValue = itemValue;
         }
         
         public virtual float UseItem()

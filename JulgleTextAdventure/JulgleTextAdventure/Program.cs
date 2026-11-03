@@ -284,7 +284,7 @@ void byen()
                 "Når du samler den op er den allerede inde på et mini kort! Wow! \n" +
                 "Du finder din kupon og dine læsebriller frem og indtaster addressen forsigtigt. \n" +
                 "Du finder malerboutiquen, og begynder din rute.\n");
-            inventoryConsumableItems.Add(new Consumable("Læbestift", "", ItemTypes.Healing));
+            inventoryConsumableItems.Add(new Consumable("Læbestift", "", ItemTypes.Healing, 2));
             Console.WriteLine("Tryk 'Enter' for at fortsætte.");
             Console.ReadLine();
             Console.Clear();
@@ -402,7 +402,7 @@ void julglen()
         "Du er en super sej panter, du fortjener at blive pink.\n" +
         "Anyways. Du er befinder dig nu i den lille landsby.\n");
     Console.WriteLine("Tryk 'Enter' for at fortsætte.");
-    inventoryConsumableItems.Add(new Consumable("Et (1) bær", "", ItemTypes.Healing));
+    inventoryConsumableItems.Add(new Consumable("Et (1) bær", "", ItemTypes.Healing, 4));
     Console.ReadLine();
     Console.Clear();
     lilleLandsby();
