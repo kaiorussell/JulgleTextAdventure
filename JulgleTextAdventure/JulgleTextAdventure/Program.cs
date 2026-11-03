@@ -558,7 +558,8 @@ void malerBoutique() //https://llk.dk/j1iay0
     if (Choice == 1 || Choice == 2)
     {
         Console.WriteLine("Du er helt dækket i pink maling.\n" +
-            "Du er pink.");
+            "Du er pink.\n" +
+            "Rest In Pink");
         youWin();
     }
 }
