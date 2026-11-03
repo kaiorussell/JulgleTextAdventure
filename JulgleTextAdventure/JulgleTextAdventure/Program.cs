@@ -5,11 +5,11 @@ using System;
 using System.Data;
 
 float hp = 5;
-int attack = 1;
+float attack = 1;
 int rejerspist = 0;
 
 List<KeyItem> inventoryKeyItems = new List<KeyItem>();
-List<Potion> inventoryConsumableItems = new List<Potion>();
+List<Consumable> inventoryConsumableItems = new List<Consumable>();
 void ShowStats()
 {
     Console.WriteLine($"Hp: {hp} Atk: {attack}");
@@ -137,7 +137,14 @@ bool Combat(Enemy enemy)
                     {
                         if (i == input - 1)
                         {
-                            hp += inventoryConsumableItems[i].UsePotion();
+                            if (inventoryConsumableItems[i].type.HasFlag(ItemTypes.Healing))
+                            {
+                                hp += inventoryConsumableItems[i].UseItem();
+                            }
+                            if (inventoryConsumableItems[i].type.HasFlag(ItemTypes.AttackIncrease))
+                            {
+                                attack += inventoryConsumableItems[i].UseItem();
+                            }
                             inventoryConsumableItems.RemoveAt(i);
                         }
                     }

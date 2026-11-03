@@ -9,12 +9,12 @@ namespace JulgleTextAdventure
     internal class Enemy
     {
         public string name;
-        public int maxHP;
-        public int currentHP;
+        public float maxHP;
+        public float currentHP;
         public int attack;
         int attackCounter = 0;
 
-        public Enemy(string Name, int MaxHP, int Attack)
+        public Enemy(string Name, float MaxHP, int Attack)
         {
             name = Name;
             maxHP = MaxHP;

@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace JulgleTextAdventure
 {
-    //PARENT CLASSES
+    [Flags]
+    public enum ItemTypes
+    {
+        Healing,
+        AttackIncrease
+    }
+
     public class Item
     {
         public string name = "Item";
@@ -21,14 +27,16 @@ namespace JulgleTextAdventure
 
     public class Consumable : Item
     {
-        public Consumable(string name, string inspectionText) : base(name, inspectionText)
+        public ItemTypes type;
+        public float itemValue;
+        public Consumable(string name, string inspectionText, ItemTypes type) : base(name, inspectionText)
         {
-            
+            this.type = type;
         }
 
-        public virtual void UseItem()
+        public virtual float UseItem()
         {
-
+            return itemValue;
         }
 
     }
@@ -38,23 +46,6 @@ namespace JulgleTextAdventure
         public KeyItem(string Name, string InpectionText) : base(Name, InpectionText)
         {
             
-        }
-    }
-
-    //LIKE THE SPECIFIC CONSUMABLES
-
-    public class Potion : Consumable
-    {
-        float healingValue;
-
-        public Potion(string name, string inspectionText, float healingValue) : base(name, inspectionText)
-        {
-            this.healingValue = healingValue;
-        }
-
-        public float UsePotion()
-        {
-            return healingValue;
         }
     }
 }
