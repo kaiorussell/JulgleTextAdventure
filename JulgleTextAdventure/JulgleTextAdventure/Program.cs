@@ -284,7 +284,7 @@ void byen()
                 "Når du samler den op er den allerede inde på et mini kort! Wow! \n" +
                 "Du finder din kupon og dine læsebriller frem og indtaster addressen forsigtigt. \n" +
                 "Du finder malerboutiquen, og begynder din rute.\n");
-            inventoryConsumableItems.Add(new Consumable("Læbestift", "", ItemTypes.Healing, 2));
+            inventoryConsumableItems.Add(new Consumable("Læbestift", "", ItemTypes.AttackIncrease, 2));
             Console.WriteLine("Tryk 'Enter' for at fortsætte.");
             Console.ReadLine();
             Console.Clear();
